@@ -11,7 +11,11 @@ Dependencies:
 * Axios https://www.npmjs.com/package/axios 
     #axios helps with http requests and is used in this application to fetch data from the GitHub API 
 
+
 Code Challenge Process 
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
 
+* Server: set up basic listening with express to help with manual testing throughout build. 
+
+* IO: input/output module establishes base URL for fetching data from GITHUB API. This module is exported and used in handler for handling get requests. 
 
