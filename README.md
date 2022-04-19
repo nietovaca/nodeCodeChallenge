@@ -13,7 +13,7 @@ Dependencies:
 * Modern-Async https://nicolas-van.github.io/modern-async/modern-async/1.1.0/global.html#map 
     #"Map over all values of an interable. Multiple calls to iteratee will be performed in parallel. If any of the calls to iteratee throws an exception the returned promise will be rejected."
 
-Code Challenge Process 
+Code Challenge Process (by file):
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
     NOTE for testing purposes: GitHub will only allow 100 hits an hour. See notes under IO (below) for more details. 
 
