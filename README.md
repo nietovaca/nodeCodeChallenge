@@ -19,3 +19,4 @@ Code Challenge Process
 
 * IO: input/output module establishes base URL for fetching data from GITHUB API. This module is exported and used in handler for handling get requests. 
 
+* Handler: houses major functions for handling get requests to Github API. Because the data needs to be called using different functions/methods, there are a number of functions in this handler. 
