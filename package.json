@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nietovaca/nodeCodeChallenge#readme",
   "dependencies": {
     "axios": "^0.26.1",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "modern-async": "^1.1.2"
   }
 }

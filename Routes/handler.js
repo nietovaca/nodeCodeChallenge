@@ -20,5 +20,28 @@ const getCommits = async (userid, repo, number) => {
     //from baseURL(fetch) get data at the commits endpoint
     return response.data
     //API pull request data returned in variable 'response'
-
 }
+
+const getPullRequestsAndCommits = async (pullRequests, userid, repo) => { 
+    // pullrequest, userid data and repo params needed to ensure path is accessible 
+    return await modernAsync.map(pullRequests, async(pullRequest) => {
+        try {
+            const commits = await getCommits(userid, repo, pullRequest.number)
+            //call getCommits function to get commit count number 
+            return {
+                id: pullRequest.id,
+                number: pullRequest.number,
+                title: pullRequest.title, 
+                author: pullRequest.user.login,
+                commit_count: commits.length
+                //length of commits to determine total number 
+            } //return data in variables with requested labels/format 
+        }
+        catch (err) {
+            throw err
+            //error handling for calling this data (bit redundant with promise inherit in plugin)
+        }
+    }
+    )
+}
+
