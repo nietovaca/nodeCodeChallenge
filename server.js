@@ -1,10 +1,6 @@
 const express = require('express');
 const app = express();
 
-
-
-
-
 //Setting up port to run local, manual testing 
 const port = process.env.PORT || 3000; 
 
