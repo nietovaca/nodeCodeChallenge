@@ -4,14 +4,21 @@ Code Challenge utilizing Node.js and GitHub API
 Dependencies: 
 * npm init -y 
     #Utilizing node package manager to initialize node.js 
+
 * Nodemon https://www.npmjs.com/package/nodemon 
     #Nodemon helps to continually monitor the app and errors that arise in production 
+
 * Express https://www.npmjs.com/package/express
     #Express helps provide 'robust' routing for single page apps 
+
 * Axios https://www.npmjs.com/package/axios 
     #Axios helps with http requests and is used in this application to fetch data from the GitHub API 
+
 * Modern-Async https://nicolas-van.github.io/modern-async/modern-async/1.1.0/global.html#map 
     #"Map over all values of an interable. Multiple calls to iteratee will be performed in parallel. If any of the calls to iteratee throws an exception the returned promise will be rejected."
+
+* Jest https://jestjs.io/
+    
 
 Code Challenge Process (by file):
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
