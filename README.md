@@ -15,6 +15,7 @@ Dependencies:
 
 Code Challenge Process 
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
+    NOTE for testing purposes: GitHub will only allow 100 hits an hour
 
 * Server: set up basic listening with express to help with manual testing throughout build. 
 
@@ -24,4 +25,5 @@ Code Challenge Process
     - get pull request data (this is available at highest level of API)
     - get commits data (this is available at another URL/path on the API)
     - get commits and pull requests together and return variables with labels for easy identification and sharing of information 
-    - 
+    - handler pulls all needed API data together and sends data/response 
+    - router - express function to establish a route for rendering data on the path '/:userid/:repo'

@@ -1,5 +1,6 @@
-const { Router } = require('express');
+const express = require('express')
 const fetch = require('../io');
+const router = express.Router()
 
 //========= Get Pull Request Data from API =========\\
 const getPullRequests = async (userid, repo) => { 
