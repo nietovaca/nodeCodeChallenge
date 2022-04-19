@@ -1,3 +1,4 @@
+const { Router } = require('express');
 const fetch = require('../io');
 
 //========= Get Pull Request Data from API =========\\
@@ -22,6 +23,7 @@ const getCommits = async (userid, repo, number) => {
     //API pull request data returned in variable 'response'
 }
 
+//========= Map Over All Retrieved Data from API =========\\ 
 const getPullRequestsAndCommits = async (pullRequests, userid, repo) => { 
     // pullrequest, userid data and repo params needed to ensure path is accessible 
     return await modernAsync.map(pullRequests, async(pullRequest) => {
@@ -45,3 +47,22 @@ const getPullRequestsAndCommits = async (pullRequests, userid, repo) => {
     )
 }
 
+//========= Handle All API Data and Send || Throw Error =========\\ 
+const handler = async (req, res) => {
+    //handler pulls it all together
+    try {
+        const pullRequests = await getPullRequests(req.params.userid, req.params.repo)
+        //invokes getPullRequests function with necessary arguments (userid and repo)
+        const responseData = await getPullRequestsAndCommits(pullRequests, req.params.userid, req.params.repo)
+        //invotes getPullRequestsAndCommits function with necessary arguments (pullRequests: mapped data, userid, repo)
+        res.send(responseData)
+        //send data after data is loaded
+    }
+    catch (err) {
+        res.status(500).send(err)
+        //500 code if data cannot be retrieved 
+    }
+}
+
+router.get('/:userid/:repo', handler)
+//establishes route to view API Data sent from handler function
