@@ -1,10 +1,9 @@
-const express = require('express')
+const modernAsync = require('modern-async')
 const fetch = require('../io');
-const router = express.Router()
 
 //========= Get Pull Request Data from API =========\\
 const getPullRequests = async (userid, repo) => { 
-    const pullRequestsEndpoint = '/${userid}/${repo}/pulls'
+    const pullRequestsEndpoint = `/${userid}/${repo}/pulls`
     //creating path to pull requests endpoint @github api (requires userid and repo name)
     //this data is top tier from github
     //pullrequestendpoint variable will be called to simplify code on get request 
@@ -27,7 +26,7 @@ const getCommits = async (userid, repo, number) => {
 //========= Map Over All Retrieved Data from API =========\\ 
 const getPullRequestsAndCommits = async (pullRequests, userid, repo) => { 
     // pullrequest, userid data and repo params needed to ensure path is accessible 
-    return await modernAsync.map(pullRequests, async(pullRequest) => {
+    return await modernAsync.map(pullRequests, async (pullRequest) => {
         try {
             const commits = await getCommits(userid, repo, pullRequest.number)
             //call getCommits function to get commit count number 
@@ -65,5 +64,4 @@ const handler = async (req, res) => {
     }
 }
 
-router.get('/:userid/:repo', handler)
-//establishes route to view API Data sent from handler function
+module.exports = handler;

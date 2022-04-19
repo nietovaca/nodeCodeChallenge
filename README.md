@@ -19,11 +19,17 @@ Code Challenge Process
 
 * Server: set up basic listening with express to help with manual testing throughout build. 
 
-* IO: input/output module establishes base URL for fetching data from GITHUB API. This module is exported and used in handler for handling get requests. 
+* IO: input/output module establishes base URL for fetching data from GITHUB API. This module is exported and used in handler for handling get requests.
+    - GitHub API recommends settings for header in API usage 
+        https://docs.github.com/en/rest/overview/resources-in-the-rest-api#current-version 
+    - Token is required for over 100 requests an hour 
+        https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 * Handler: houses major functions for handling get requests to Github API. Because the data needs to be called using different functions/methods, there are a number of functions in this handler.
     - get pull request data (this is available at highest level of API)
     - get commits data (this is available at another URL/path on the API)
     - get commits and pull requests together and return variables with labels for easy identification and sharing of information 
     - handler pulls all needed API data together and sends data/response 
+
+* Index: houses the router is main file in package.json 
     - router - express function to establish a route for rendering data on the path '/:userid/:repo'
