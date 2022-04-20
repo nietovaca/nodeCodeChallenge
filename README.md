@@ -13,12 +13,10 @@ Dependencies:
 
 * Axios https://www.npmjs.com/package/axios 
     #Axios helps with http requests and is used in this application to fetch data from the GitHub API 
+    #this resource helped me with axios and github api https://blog.logrocket.com/understanding-axios-create/ 
 
 * Modern-Async https://nicolas-van.github.io/modern-async/modern-async/1.1.0/global.html#map 
     #"Map over all values of an interable. Multiple calls to iteratee will be performed in parallel. If any of the calls to iteratee throws an exception the returned promise will be rejected."
-
-* Jest https://jestjs.io/
-    
 
 Code Challenge Process (by file):
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
@@ -46,3 +44,4 @@ Code Challenge Process (by file):
 * Index: houses the router is main file in package.json 
     * router - express function to establish a route for rendering data on the path '/:userid/:repo'
     * consider adding this to the server.js and making server.js main in package.json to avoid over-modulating 
+
