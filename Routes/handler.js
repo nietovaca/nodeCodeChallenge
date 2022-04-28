@@ -20,6 +20,7 @@ const getPullRequestsAndCommits = async (pullRequests, userid, repo) => {
     return await modernAsync.map(pullRequests, async (pullRequest) => {
         try {
             const commits = await getCommits(userid, repo, pullRequest.number)
+            //catching commits error, if error goes to 32 
             return {
                 id: pullRequest.id,
                 number: pullRequest.number,
@@ -30,7 +31,8 @@ const getPullRequestsAndCommits = async (pullRequests, userid, repo) => {
         }
         catch (err) {
             throw err
-            //error handling for calling this data (bit redundant with promise inherit in plugin)
+                //error is connected to getCommits function, not modernAsync 
+            //catch, then throw - be explicit about error handling - can go back and log the error later 
         }
     }
     )
@@ -39,7 +41,7 @@ const getPullRequestsAndCommits = async (pullRequests, userid, repo) => {
 //========= Handle All API Data and Send || Throw Error =========\\ 
 const handler = async (req, res) => {
     try {
-        const pullRequests = await getPullRequests(req.params.userid, req.params.repo)
+        const pullRequests = await getPullRequests(req.params.userid, req.params.repo) //data is mapped here
         const responseData = await getPullRequestsAndCommits(pullRequests, req.params.userid, req.params.repo)
         res.send(responseData)
     }
@@ -49,3 +51,6 @@ const handler = async (req, res) => {
 }
 
 module.exports = handler;
+
+//try and catch surround a function/block off whatever you are trying 
+    //

@@ -16,7 +16,7 @@ Dependencies:
     #this resource helped me with axios and github api https://blog.logrocket.com/understanding-axios-create/ 
 
 * Modern-Async https://nicolas-van.github.io/modern-async/modern-async/1.1.0/global.html#map 
-    #"Map over all values of an interable. Multiple calls to iteratee will be performed in parallel. If any of the calls to iteratee throws an exception the returned promise will be rejected."
+    #"Map over all values of an iterable. Multiple calls to iteratee will be performed in parallel. If any of the calls to iteratee throws an exception the returned promise will be rejected."
 
 Code Challenge Process (by file):
 * I started this project utilizing Postman to test routes and to see what data was coming back from the github API. 
@@ -36,12 +36,21 @@ Code Challenge Process (by file):
     * get commits data (this is available at another URL/path on the API)
         - commit numbers is not a property, but this end point will show all commits for them to be totaled in next function 
     * get commits and pull requests together and return variables with labels for easy identification and sharing of information
-        - I used modern async here to provide more robust error handling while mapping over API data and returning values for rendering
+        - I used modern async here to provide more robust error handling while mapping over API data and returning values for rendering 
+        - how to map over an async-function? 
+            - googled and found it on stackoverflow 
+            - maping over values in an array/iterable 
         - try/catch may be rendundant here as modern async will throw an exception if promise is rejected
-    * handler pulls all needed API data together and sends data/response 
+    * handler pulls all needed API data together (maps over data) and sends data/response 
+        - 
 
 
 * Index: houses the router is main file in package.json 
     * router - express function to establish a route for rendering data on the path '/:userid/:repo'
-    * consider adding this to the server.js and making server.js main in package.json to avoid over-modulating 
+    * fix package.json to include server.js, not index.js 
+
+* If there were any challenges - 
+    * not understanding why API stopped returning data all of a sudden, using phone to figure out what was happening
+
+* Promise.all() - array of promises to map over, vs.  
 
